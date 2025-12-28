@@ -18,7 +18,9 @@ const app=express();
 
 
 app.use(cors({
-  origin: 'http://localhost:8080',
+  origin: ['http://localhost:8080','https://www.yaanbarpe.in','https://yaanbarpe-git-main-sood-11s-projects.vercel.app',
+    'https://yaanbarpe-2iruscdji-sood-11s-projects.vercel.app/'
+  ]
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 }));
