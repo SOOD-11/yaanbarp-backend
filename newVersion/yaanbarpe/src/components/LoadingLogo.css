@@ -1,0 +1,20 @@
+/* LoadingLogo.css */
+.loading-logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh; /* Adjust for page */
+  background-color: #ffffff; /* optional, can match site background */
+}
+
+.loading-logo {
+  width: 120px;
+  animation: spin 2s linear infinite;
+  /* optional: add shadow to match brand colors */
+  filter: drop-shadow(0 0 5px rgba(46, 61, 61, 0.6));
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

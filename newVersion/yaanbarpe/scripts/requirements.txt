@@ -1,0 +1,2 @@
+# Requirements for audio generation script
+gtts==2.4.0

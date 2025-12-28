@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Test - Blog Post Narration</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .audio-player {
+            background: #00555A;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .audio-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        button {
+            background: #CC4E5C;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        button:hover {
+            background: #b04450;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .audio-list {
+            display: grid;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        .audio-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #00555A;
+        }
+        .audio-item h3 {
+            margin: 0 0 10px 0;
+            color: #00555A;
+        }
+        .status {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .intro {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .intro h1 {
+            color: #00555A;
+            margin-bottom: 10px;
+        }
+        .intro p {
+            color: #666;
+            font-size: 18px;
+        }
+        .feature-list {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .feature-list h3 {
+            color: #00555A;
+            margin-top: 0;
+        }
+        .feature-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .feature-list li {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="intro">
+            <h1>🎵 Blog Audio Narration System</h1>
+            <p>Natural human-like voice narration powered by Google Text-to-Speech</p>
+        </div>
+
+        <div class="feature-list">
+            <h3>✨ Features</h3>
+            <ul>
+                <li><strong>Natural Voice Quality:</strong> Google's TTS provides human-like narration</li>
+                <li><strong>Pre-generated MP3s:</strong> Fast loading, no real-time synthesis needed</li>
+                <li><strong>Cross-browser Compatible:</strong> Works on all devices and browsers</li>
+                <li><strong>Automated Generation:</strong> Python script processes all blog posts</li>
+                <li><strong>Multiple Accents:</strong> US, UK, Indian, Australian English available</li>
+            </ul>
+        </div>
+
+        <div class="audio-player">
+            <h3>🎧 Test Audio Player</h3>
+            <p>Click any audio file below to test the natural voice quality</p>
+            <div class="audio-controls">
+                <button onclick="testAllAudio()">Test All Files</button>
+                <button onclick="showGenerationInfo()">Generation Info</button>
+            </div>
+        </div>
+
+        <div class="audio-list" id="audioList">
+            <!-- Generated dynamically by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // List of all generated audio files
+        const audioFiles = [
+            { id: 'Pilivesha', title: 'Pilivesha - Traditional Tiger Dance' },
+            { id: 'Polali-RajaRajeshwari-Temple', title: 'Polali RajaRajeshwari Temple' },
+            { id: 'Delta-Point', title: 'Delta Point - River Meets Sea' },
+            { id: 'Neer-Dosa', title: 'Neer Dosa - Coastal Delicacy' },
+            { id: 'Kori-Rotti', title: 'Kori Rotti - Traditional Cuisine' },
+            { id: 'Maravanthe-Beach', title: 'Maravanthe Beach - Scenic Coast' },
+            { id: 'Padubidri-Beach', title: 'Padubidri Beach - Blue Flag' },
+            { id: 'Panambur-Beach', title: 'Panambur Beach - Water Sports Hub' },
+            { id: 'Malpe', title: 'Malpe - Coastal Gem' },
+            { id: 'Kapu-Beach', title: 'Kapu Beach & Lighthouse' },
+            { id: 'Sea-Walk', title: 'Sea Walk - Udupi Promenade' },
+            { id: 'Chicken-Ghee-Roast', title: 'Chicken Ghee Roast - Spicy Delight' },
+            { id: 'Ullal-Beach', title: 'Ullal Beach - Historic Shore' },
+            { id: 'Suruthkal-Beach', title: 'Surathkal Beach - NITK Coast' },
+            { id: 'Kadri-Nath-Panth', title: 'Kadri & the Nath Panth' }
+        ];
+
+        let currentAudio = null;
+
+        function createAudioList() {
+            const audioList = document.getElementById('audioList');
+            
+            audioFiles.forEach(file => {
+                const audioItem = document.createElement('div');
+                audioItem.className = 'audio-item';
+                audioItem.innerHTML = `
+                    <h3>${file.title}</h3>
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <audio controls style="width: 70%;">
+                            <source src="/assets/audio/${file.id}.mp3" type="audio/mpeg">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <span class="status" id="status-${file.id}">Ready</span>
+                    </div>
+                `;
+                audioList.appendChild(audioItem);
+
+                // Add event listeners to track loading
+                const audio = audioItem.querySelector('audio');
+                audio.addEventListener('loadstart', () => {
+                    updateStatus(file.id, 'Loading...', 'info');
+                });
+                audio.addEventListener('canplay', () => {
+                    updateStatus(file.id, 'Ready', 'success');
+                });
+                audio.addEventListener('error', () => {
+                    updateStatus(file.id, 'Error', 'error');
+                });
+                audio.addEventListener('play', () => {
+                    updateStatus(file.id, 'Playing', 'info');
+                    // Pause other audio elements
+                    document.querySelectorAll('audio').forEach(otherAudio => {
+                        if (otherAudio !== audio) {
+                            otherAudio.pause();
+                        }
+                    });
+                });
+                audio.addEventListener('pause', () => {
+                    updateStatus(file.id, 'Paused', 'info');
+                });
+                audio.addEventListener('ended', () => {
+                    updateStatus(file.id, 'Finished', 'success');
+                });
+            });
+        }
+
+        function updateStatus(id, text, type) {
+            const statusEl = document.getElementById(`status-${id}`);
+            if (statusEl) {
+                statusEl.textContent = text;
+                statusEl.className = `status ${type}`;
+            }
+        }
+
+        function testAllAudio() {
+            alert(`Testing ${audioFiles.length} audio files...\n\nEach file was generated using Google Text-to-Speech with:\n• Natural English voice\n• Optimized rate and pitch\n• MP3 format for web compatibility\n\nClick on any audio player to hear the quality!`);
+        }
+
+        function showGenerationInfo() {
+            const info = `
+🎵 Audio Generation Details:
+
+📊 Statistics:
+• Total Files: ${audioFiles.length}
+• Format: MP3
+• Voice: Google TTS (US English)
+• Average Size: ~100KB per article
+
+🛠️ Generated using:
+python scripts/generate_audio.py
+
+🔧 Features:
+• Automatic HTML tag removal
+• Text cleaning and optimization  
+• Natural speech parameters
+• Error handling and progress tracking
+
+🌐 Voice Options Available:
+• US English (com)
+• British English (co.uk)
+• Indian English (co.in)
+• Australian English (com.au)
+
+✨ This provides much better quality than browser-based text-to-speech!
+            `;
+            alert(info);
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', createAudioList);
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YaanBarpe (YBiee) - Unveiling Tulu Nadu's Cultural Treasures</title>
+    <meta name="description" content="Experience the rich cultural heritage of Tulu Nadu through immersive travel experiences and authentic cultural immersion." />
+    <meta name="author" content="YaanBarpe" />
+<meta name="keywords" content="YaanBarpe, YBiee,yaanbarpe,ybiee ,yaan barpe, YaanBarpe ,Tulunadu, Tulu Nadu culture, Kambala, Yakshagana, Bhootha Kola, coastal Karnataka, Udupi traditions" />
+    <meta property="og:title" content="YaanBarpe (YBiee) - Tulu Nadu's Cultural Treasures" />
+    <meta property="og:description" content="Experience the rich cultural heritage of Tulu Nadu through immersive travel experiences and authentic cultural immersion." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://yaanbarpe.in/logos/Screenshot_2025-05-30_at_6.22.00_PM-removebg-preview-2.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@yaanbarpe" />
+    <meta name="twitter:image" content="https://yaanbarpe.in/logos/Screenshot_2025-05-30_at_6.22.00_PM-removebg-preview-2.png" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/favicon.ico" />
+    <!-- Professional Typography -->
+     <link rel="canonical" href="https://yaanbarpe.in/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <!-- ResponsiveVoice TTS - Premium API for better voice quality -->
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=FREE"></script>
+    <script>
+      // Enhanced ResponsiveVoice setup with improved voice quality
+      window.addEventListener('load', function() {
+        // Wait longer for ResponsiveVoice to fully initialize
+        setTimeout(function() {
+          if (window.responsiveVoice) {
+            console.log('✅ ResponsiveVoice loaded successfully');
+            console.log('Voice support:', window.responsiveVoice.voiceSupport());
+            
+            // Configure ResponsiveVoice for more natural speech
+            if (window.responsiveVoice.voiceSupport()) {
+              console.log('✅ ResponsiveVoice voice support confirmed');
+              
+              // Set a high-quality voice as default
+              window.responsiveVoice.setDefaultVoice('UK English Female');
+              
+              // Configure global parameters for more natural speech
+              window.responsiveVoiceParams = {
+                pitch: 1.05,    // Slightly higher pitch sounds more natural
+                rate: 0.92,     // Slightly slower rate for clarity
+                volume: 1.0,    // Full volume
+                listener: {     // Add listener for voice events
+                  onstart: () => console.log('🎙️ ResponsiveVoice started speaking'),
+                  onend: () => console.log('✅ ResponsiveVoice finished speaking')
+                }
+              };
+            } else {
+              console.log('❌ ResponsiveVoice voice support failed');
+            }
+          } else {
+            console.log('❌ ResponsiveVoice not loaded - will use browser TTS');
+          }
+        }, 2000); // Increased wait time
+      });
+      
+      // Debug function with improved voice parameters
+      window.testTTS = function() {
+        if (window.responsiveVoice && window.responsiveVoice.voiceSupport()) {
+          window.responsiveVoice.speak(
+            'This is a test of the natural voice system. Our immersive audio guides bring Tulu Nadu\'s stories to life.', 
+            'UK English Female', 
+            {
+              pitch: 1.05,
+              rate: 0.92,
+              volume: 1.0
+            }
+          );
+        } else {
+          console.log('ResponsiveVoice not available for test');
+        }
+      };
+    </script>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script type="module" src="/src/main.tsx"></script>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "YaanBarpe",
+  "url": "https://yaanbarpe.in",
+  "logo": "https://yaanbarpe.in/favicon.ico",
+  "sameAs": [
+    "https://www.instagram.com/yaanbarpe",
+    "https://www.linkedin.com/company/yaanbarpe"
+  ]
+}
+</script>
+  </body>
+</html>

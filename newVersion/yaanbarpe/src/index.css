@@ -1,0 +1,291 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+ 
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 222.2 47.4% 11.2%;
+    --sidebar-primary-foreground: 210 40% 98%;
+    --sidebar-accent: 210 40% 96.1%;
+    --sidebar-accent-foreground: 222.2 47.4% 11.2%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 222.2 84% 4.9%;
+
+    /* Professional Tech Colors */
+    --tech-primary: 215 28% 17%;
+    --tech-secondary: 217 19% 27%;
+    --tech-accent: 210 14% 37%;
+    --tech-muted: 215 25% 50%;
+    --tech-light: 210 40% 92%;
+    --tech-border: 215 20% 25%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 40% 98%;
+    --sidebar-primary-foreground: 222.2 47.4% 11.2%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-ring: 212.7 26.8% 83.9%;
+
+    /* Professional Tech Colors for Dark Mode */
+    --tech-primary: 215 28% 12%;
+    --tech-secondary: 217 19% 20%;
+    --tech-accent: 210 14% 30%;
+    --tech-muted: 215 25% 40%;
+    --tech-light: 210 40% 85%;
+    --tech-border: 215 20% 18%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    line-height: 1.6;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Professional Typography */
+  .font-display {
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+    font-optical-sizing: auto;
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Professional Tech color utilities */
+@layer utilities {
+  .text-tech-primary { color: hsl(var(--tech-primary)); }
+  .text-tech-secondary { color: hsl(var(--tech-secondary)); }
+  .text-tech-accent { color: hsl(var(--tech-accent)); }
+  .text-tech-muted { color: hsl(var(--tech-muted)); }
+  .text-tech-light { color: hsl(var(--tech-light)); }
+  
+  .bg-tech-primary { background-color: hsl(var(--tech-primary)); }
+  .bg-tech-secondary { background-color: hsl(var(--tech-secondary)); }
+  .bg-tech-accent { background-color: hsl(var(--tech-accent)); }
+  .bg-tech-muted { background-color: hsl(var(--tech-muted)); }
+  .bg-tech-light { background-color: hsl(var(--tech-light)); }
+  
+  .border-tech-primary { border-color: hsl(var(--tech-primary)); }
+  .border-tech-secondary { border-color: hsl(var(--tech-secondary)); }
+  .border-tech-accent { border-color: hsl(var(--tech-accent)); }
+  .border-tech-border { border-color: hsl(var(--tech-border)); }
+  
+  .hover\:bg-tech-primary:hover { background-color: hsl(var(--tech-primary)); }
+  .hover\:bg-tech-secondary:hover { background-color: hsl(var(--tech-secondary)); }
+  .hover\:bg-tech-accent:hover { background-color: hsl(var(--tech-accent)); }
+  
+  /* Professional gradient utilities */
+  .gradient-tech {
+    background: linear-gradient(135deg, hsl(var(--tech-primary)), hsl(var(--tech-secondary)));
+  }
+  
+  .gradient-tech-accent {
+    background: linear-gradient(135deg, hsl(var(--tech-secondary)), hsl(var(--tech-accent)));
+  }
+}
+
+/* Enhanced professional animations */
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 1s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 1s ease-out forwards;
+}
+
+.animate-fade-in-right {
+  animation: fade-in-right 1s ease-out forwards;
+}
+
+/* Professional glass morphism effects */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.15);
+}
+
+.glass-card-dark {
+  background: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+}
+/* Add to your global styles or Tailwind config */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Professional hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 32px 64px rgba(0, 0, 0, 0.15);
+}
+
+/* Enhanced scroll reveal animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 1.2s cubic-bezier(0.4, 0, 0.2, 1), transform 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.scroll-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Professional tech gradient */
+.text-gradient {
+  background: linear-gradient(135deg, hsl(var(--tech-light)), hsl(var(--tech-muted)), hsl(var(--tech-accent)));
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Professional scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, hsl(var(--tech-secondary)), hsl(var(--tech-accent)));
+  border-radius: 6px;
+  border: 2px solid hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, hsl(var(--tech-accent)), hsl(var(--tech-secondary)));
+}
