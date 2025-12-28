@@ -8,8 +8,8 @@ import nodemailer from "nodemailer";
 
 
 const razorpay=new Razorpay({
-    key_id:process.env.RAZORPAY_TEST_KEY_ID|| "rzp_test_REHGiFLyULooQk",
-    key_secret:process.env.RAZORPAY_TEST_KEY_SECRET||"pqU7AFkAtmtoWh5nin4S7G67git"
+    key_id:"rzp_test_REHGiFLyULooQk",
+    key_secret:"pqU7AFkAtmtoWh5nin4S7G67git"
 });
  
 
