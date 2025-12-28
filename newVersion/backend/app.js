@@ -16,16 +16,16 @@ import PaymentRouter from "./routes/Payment.route.js";
 const app=express();
 
 
-
+app.use(cookieParser());
 app.use(cors({
   origin: ['http://localhost:8080','https://www.yaanbarpe.in','https://yaanbarpe-git-main-sood-11s-projects.vercel.app',
     'https://yaanbarpe-2iruscdji-sood-11s-projects.vercel.app/'
-  ]
+  ],
   credentials: true,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 }));
 
-app.use(cookieParser());
+
 ConnectToDatabase();
 
 app.get('/', (req,res)=>{
