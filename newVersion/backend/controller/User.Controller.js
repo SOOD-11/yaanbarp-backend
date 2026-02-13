@@ -28,8 +28,9 @@ const generateAccessToken = (user) => {
 const cookieOptions = {
   httpOnly: true,
   secure: true,
-  sameSite:"None",
-  maxAge: 30 * 60 * 1000, // 30 minutes
+  sameSite:"lax",
+  maxAge: 30 * 60 * 1000,
+  domain: "yaanbarpe.in",// 30 minutes
   path: "/"
 };
 
